@@ -144,11 +144,11 @@ a:hover {
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-    position: sticky;
-    top: 100px; /* Adjust based on navbar height */
-    align-self: flex-start; /* Keeps sidebar at the top */
-    height: fit-content;
+    position: relative; /* ← was sticky */
+    top: auto;
+    align-self: flex-start;
 }
+
 
 .sidebar h2 {
     color: #fff;
@@ -323,5 +323,6 @@ a:hover {
         width: 100%;
         max-width: none;
     }
+
 
     .hero-section .container {
