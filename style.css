@@ -1,15 +1,9 @@
-/* Smooth Scroll and Offset Fix */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 120px; /* prevents navbar from overlapping content */
-}
-
 /* General Styling */
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
-    background-color: #1a1a2e;
-    color: #e0e0e0;
+    background-color: #1a1a2e; /* Dark background */
+    color: #e0e0e0; /* Light text */
     line-height: 1.6;
 }
 
@@ -20,7 +14,7 @@ body {
 }
 
 a {
-    color: #8a2be2;
+    color: #8a2be2; /* Purple link color */
     text-decoration: none;
 }
 
@@ -30,7 +24,7 @@ a:hover {
 
 /* Navbar */
 .navbar {
-    background-color: #2c003e;
+    background-color: #2c003e; /* Darker purple */
     padding: 15px 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     position: sticky;
@@ -45,7 +39,7 @@ a:hover {
 }
 
 .navbar .logo img {
-    height: 50px;
+    height: 50px; /* Adjust as needed */
     width: auto;
 }
 
@@ -69,6 +63,7 @@ a:hover {
 
 .navbar nav ul li a:hover {
     color: #8a2be2;
+    text-decoration: none;
 }
 
 .navbar .login-button a {
@@ -82,6 +77,7 @@ a:hover {
 
 .navbar .login-button a:hover {
     background-color: #6a0dad;
+    text-decoration: none;
 }
 
 /* Hero Section */
@@ -129,6 +125,7 @@ a:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
+
 /* Rules Section Layout */
 .rules-section {
     display: flex;
@@ -136,7 +133,7 @@ a:hover {
     padding: 60px 0;
     background-color: #2a2a4e;
     border-radius: 10px;
-    margin-top: -50px;
+    margin-top: -50px; /* Overlap with hero section */
     position: relative;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
 }
@@ -147,9 +144,10 @@ a:hover {
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-    position: relative;
-    top: auto;
-    align-self: flex-start;
+    position: sticky;
+    top: 100px; /* Adjust based on navbar height */
+    align-self: flex-start; /* Keeps sidebar at the top */
+    height: fit-content;
 }
 
 .sidebar h2 {
@@ -181,12 +179,12 @@ a:hover {
 }
 
 .rules-nav ul li a:hover,
-.rules-nav ul li a.active {
+.rules-nav ul li a.active { /* Add .active class for current section */
     background-color: #8a2be2;
     color: #fff;
+    text-decoration: none;
 }
 
-/* Content Area */
 .content-area {
     flex: 1;
     background-color: #1a1a2e;
@@ -195,26 +193,24 @@ a:hover {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Rule Item */
+.rules-set h2 {
+    color: #8a2be2;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    text-align: center;
+    border-bottom: 2px solid #3f1e5c;
+    padding-bottom: 15px;
+}
+
 .rule-item {
     background-color: #2c003e;
     padding: 30px;
-    margin: 80px 0 30px 0; /* Added top margin for anchor spacing */
+    margin-bottom: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     border-left: 5px solid #8a2be2;
-    transition: transform 0.4s ease, opacity 0.4s ease;
-    opacity: 0;
-    transform: translateY(30px);
 }
 
-/* Animation: fade-in on scroll */
-.rule-item.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Rule Titles */
 .rule-item h3 {
     color: #fff;
     font-size: 1.8em;
@@ -229,9 +225,8 @@ a:hover {
     margin-right: 10px;
 }
 
-/* Rule Lists */
 .rule-item ul {
-    list-style: none;
+    list-style: none; /* Remove default bullet */
     padding-left: 0;
     margin-top: 20px;
 }
@@ -245,14 +240,17 @@ a:hover {
 }
 
 .rule-item ul li::before {
-    content: '🔹';
+    content: '🔹'; /* Custom bullet point */
     color: #8a2be2;
     position: absolute;
     left: 0;
     top: 0;
 }
 
-/* Footer Info */
+.rule-item ul li .icon {
+    margin-right: 8px;
+}
+
 .footer-info {
     margin-top: 40px;
     padding-top: 20px;
@@ -260,16 +258,47 @@ a:hover {
     font-size: 1em;
 }
 
-/* Arabic Section */
+.footer-info p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-info p .icon {
+    font-size: 1.1em;
+    margin-right: 10px;
+    color: #8a2be2;
+}
+
+/* Arabic Specific Styling */
 .rules-set.rtl {
     direction: rtl;
     text-align: right;
-    font-family: 'Cairo', sans-serif;
+    font-family: 'Cairo', sans-serif; /* Arabic font */
 }
 
 .rules-set.rtl .rule-item {
     border-right: 5px solid #8a2be2;
     border-left: none;
+}
+
+.rules-set.rtl .rule-item ul li::before {
+    left: auto;
+    right: 0;
+}
+
+.rules-set.rtl .rule-item ul li {
+    padding-left: 0;
+    padding-right: 30px;
+}
+
+.rules-set.rtl .rule-item h3 .icon {
+    margin-right: 0;
+    margin-left: 10px;
+}
+.rules-set.rtl .footer-info p .icon {
+    margin-right: 0;
+    margin-left: 10px;
 }
 
 /* Footer */
@@ -282,7 +311,7 @@ a:hover {
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Responsive */
+/* Responsive Design */
 @media (max-width: 992px) {
     .rules-section {
         flex-direction: column;
@@ -292,5 +321,7 @@ a:hover {
     .sidebar {
         position: static;
         width: 100%;
+        max-width: none;
     }
-}
+
+    .hero-section .container {
