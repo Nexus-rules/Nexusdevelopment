@@ -7,6 +7,17 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+});
+document.querySelectorAll('.rule-item').forEach(el => observer.observe(el));
+</script>
+
 <body>
     <header class="navbar">
         <div class="container">
@@ -217,4 +228,5 @@
         </div>
     </footer>
 </body>
+
 </html>
